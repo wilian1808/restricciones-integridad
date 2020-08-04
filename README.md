@@ -12,21 +12,46 @@ USE WorkExampleDB;
 
 > Borramos la base de datos *WorkExampleDB* si es que ya existe luego creamos la base de datos *WorkExampleDB* y la usamos para ejecutar los siguientes codigos *sql*.
 
-#### 1. Primero.
+### 1. Primero.
 
-Crear una tabla `estudiantes`, los campos debe de incluir un id entero autoincrementable, número de matricula y dni con restricciones de formato y únicos, cuenta de correo electronico con la restriccion de formato correspondiente, debe de incluirse campos para sexo, fecha de nacimiento, apellidos y nombres. Inserte datos de su familia.
+Crear una tabla `estudiantes`, los campos debe de incluir un id entero autoincrementable, número de matricula y dni con restricciones de formato y únicos, cuenta de correo electronico con la restriccion de formato correspondiente, debe de incluirse campos para sexo, fecha de nacimiento, apellidos y nombres. Inserte datos.
+
+> creamos la tabla *estudiante* con sus respectivos atributos.
 
 ```sql
-
-
+CREATE TABLE Estudiantes (
+    EstudianteID INTEGER NOT NULL IDENTITY(1, 1),
+    Nombres VARCHAR(100) NOT NULL,
+    Apellidos VARCHAR(100) NOT NULL,
+    NumeroMatricula INTEGER NOT NULL,
+    Dni INTEGER NOT NULL,
+    Correo VARCHAR (100) NOT NULL,
+    Sexo VARCHAR (20) NOT NULL ,
+    FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pk_estudiantes PRIMARY KEY (EstudianteID),
+    CONSTRAINT uk_numero_matricula_estudiantes UNIQUE (NumeroMatricula),
+    CONSTRAINT ck_numero_matricula_estudiantes CHECK (NumeroMatricula > 0),
+    CONSTRAINT uk_dni_estudiantes UNIQUE (Dni),
+    CONSTRAINT ck_dni_estudiantes CHECK (Dni > 0),
+    CONSTRAINT uk_correo_estudiantes UNIQUE (Correo)
+);
 ```
 
-#### 2. Segundo
+> Insertamos valores en la tabla *Estudiantes*.
+
+```sql
+INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo) 
+	VALUES ('mario', 'ccama ccama', 202020, 78487548, 'mario@gmail.com', 'masculino'),
+    	   ('luz', 'apaza iquise', 202021, 75588455, 'luz@gmail.com', 'femenino'),
+  		   ('wilber', 'choque condo', 202022, 74148475, 'wilber@gmail.com', 'masculino');
+```
+
+### 2. Segundo
 
 Segundo. Crear una tabla para matrícula y otra para curso, debe considerarse las restricciones de
 integridad referencial.
 
-#### 3. tercero.
+### 3. tercero.
 
 Indagar como acceder remotamente a una base de datos. Probar con alguno de sus
 compañeros de clase.
