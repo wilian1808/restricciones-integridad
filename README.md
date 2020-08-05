@@ -40,10 +40,10 @@ CREATE TABLE Estudiantes (
 > Insertamos valores en la tabla *Estudiantes*.
 
 ```sql
-INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo) 
-	VALUES ('mario', 'ccama ccama', 202020, 78487548, 'mario@gmail.com', 'masculino'),
-    	   ('luz', 'apaza iquise', 202021, 75588455, 'luz@gmail.com', 'femenino'),
-  		   ('wilber', 'choque condo', 202022, 74148475, 'wilber@gmail.com', 'masculino');
+INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo) VALUES 
+    ('wilber', 'choque condo', 202022, 74148475, 'wilber@gmail.com', 'masculino'),
+    ('mario', 'ccama ccama', 202020, 78487548, 'mario@gmail.com', 'masculino'),
+    ('luz', 'apaza iquise', 202021, 75588455, 'luz@gmail.com', 'femenino');
 ```
 
 ### 2. Segundo
