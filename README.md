@@ -84,4 +84,40 @@ Indagar como acceder remotamente a una base de datos. Probar con alguno de sus c
 
 - Debemos habilitar la opcion de permitir conexiones remotas.
 - Tendremos que crear un usuario y definir los permisos para que pueda ejecutar acciones dentro de nuestra base de datos.
-- Tenemos que definir el puerto y anotar la ip de la maquina donde estara la base de datos a conectarse.
+- Tenemos que definir el puerto y anotar el host de la maquina donde estara la base de datos a conectarse.
+
+> Para mostrar un ejemplo nos conectaremos a una base de datos remota, el gestor de esta base de datos es *MySql*.
+
+A continuacion se muestran el enlace del servicio que nos proporciona una base de datos para conectarnos.
+
+- [remotemysql](https://remotemysql.com/)
+
+> para lograr la conexion anotamos los siguientes datos.
+
+- Nombre de usuario
+- Nombre de la base de datos
+- Contraseña de la base de datos
+- Servidor
+- Puerto
+
+
+> Para conectarnos a una base de datos remota mediante la consola de *Mysql* usamos la siguiente linea de comando,  reemplaze cada <> con los valores de su base de datos remota al momento de ejecutar nos pedira que insertemos la contraseña de la base de datos.
+
+```sh
+mysql -h <host> -P <port> -u <username> -D <database_name> -p
+```
+
+> explicaremos cada uno de los parametros:
+
+- **-p** indica la contraseña de la base de datos
+- **-D** indica el nombre de la base de datos
+- **-h** indica el host de la base de datos
+- **-P** indica el port de la base de datos
+- **-u** indica el usuario
+
+> imagen de como nos conectamos a la base de datos.
+
+![conexion](https://user-images.githubusercontent.com/48990642/89370797-3678f280-d6a7-11ea-8453-586668802be8.png)
+
+> En la imagen adjunta vemos como abrimos una terminal y escribimos el comando pasandole los datos correspondientes para poder conectarnos a nuestra base de datos remota, luego de eso nos pedira la contraseña la escribimos y listo estamos dentro de una base de datos remota.
+Una ves dentro de la base de datos creamos una consulta que describe la tabla *users* para comprobar que todo funciona correctamente.
