@@ -21,26 +21,25 @@ CREATE TABLE Estudiantes (
     CONSTRAINT uk_correo_estudiantes UNIQUE (Correo)
 );
 
-INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo) 
-	VALUES ('mario', 'ccama ccama', 202020, 78487548, 'mario@gmail.com', 'masculino'),
-    	   ('luz', 'apaza iquise', 202021, 75588455, 'luz@gmail.com', 'femenino'),
-  		   ('wilber', 'choque condo', 202022, 74148475, 'wilber@gmail.com', 'masculino');
+INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo) VALUES 
+    ('wilber', 'choque condo', 202022, 74148475, 'wilber@gmail.com', 'masculino'),
+    ('mario', 'ccama ccama', 202020, 78487548, 'mario@gmail.com', 'masculino'),
+    ('luz', 'apaza iquise', 202021, 75588455, 'luz@gmail.com', 'femenino');
 
---
-CREATE TABLE cursos (
-    id_curso INT NOT NULL IDENTITY,
-    nombre VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_cursos PRIMARY KEY (id_curso),
-    CONSTRAINT uk_cursos_nombre UNIQUE (nombre)
+CREATE TABLE Cursos (
+    CursoID INTEGER NOT NULL IDENTITY(1, 1),
+    Nombre VARCHAR(100) NOT NULL,
+    CONSTRAINT pk_cursos PRIMARY KEY (CursoID),
+    CONSTRAINT uk_nombre_cursos UNIQUE (Nombre)
 );
 
-CREATE TABLE matriculas (
-    id_matricula INT NOT NULL IDENTITY,
-    id_estudiante INT NOT NULL,
-    id_curso INT NOT NULL,
-    CONSTRAINT pk_matriculas PRIMARY KEY (id_matricula),
-    CONSTRAINT fk_matriculas_estudiantes FOREIGN KEY (id_estudiante) REFERENCES estudiantes (id_estudiante)
+CREATE TABLE Matriculas (
+    MatriculaID INTEGER NOT NULL IDENTITY(1, 1),
+    EstudianteID INTEGER,
+    CursoID INTEGER,
+    CONSTRAINT pk_matriculas PRIMARY KEY (MatriculaID),
+    CONSTRAINT fk_matriculas_estudiantes FOREIGN KEY (EstudianteID) REFERENCES Estudiantes (EstudianteID)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT fk_matriculas_cursos FOREIGN KEY (id_curso) REFERENCES cursos (id_curso)
+    CONSTRAINT fk_matriculas_cursos FOREIGN KEY (CursoID) REFERENCES Cursos (CursoID)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );

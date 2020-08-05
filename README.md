@@ -51,6 +51,32 @@ INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo)
 Segundo. Crear una tabla para matrícula y otra para curso, debe considerarse las restricciones de
 integridad referencial.
 
+> Creamos la tabla *Cursos* con sus respectivos atributos.
+
+```sql
+CREATE TABLE Cursos (
+    CursoID INTEGER NOT NULL IDENTITY(1, 1),
+    Nombre VARCHAR(100) NOT NULL,
+    CONSTRAINT pk_cursos PRIMARY KEY (CursoID),
+    CONSTRAINT uk_nombre_cursos UNIQUE (Nombre)
+);
+```
+
+> Creamos la tabla *Matriculas* con sus respectivos atributos y las relaciones correspondientes.
+
+```sql
+CREATE TABLE Matriculas (
+    MatriculaID INTEGER NOT NULL IDENTITY(1, 1),
+    EstudianteID INTEGER,
+    CursoID INTEGER,
+    CONSTRAINT pk_matriculas PRIMARY KEY (MatriculaID),
+    CONSTRAINT fk_matriculas_estudiantes FOREIGN KEY (EstudianteID) REFERENCES Estudiantes (EstudianteID)
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT fk_matriculas_cursos FOREIGN KEY (CursoID) REFERENCES Cursos (CursoID)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+```
+
 ### 3. tercero.
 
 Indagar como acceder remotamente a una base de datos. Probar con alguno de sus
