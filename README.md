@@ -70,9 +70,9 @@ CREATE TABLE Matriculas (
     EstudianteID INTEGER,
     CursoID INTEGER,
     CONSTRAINT pk_matriculas PRIMARY KEY (MatriculaID),
-    CONSTRAINT fk_matriculas_estudiantes FOREIGN KEY (EstudianteID) REFERENCES Estudiantes (EstudianteID)
+    CONSTRAINT fk_estudiantes FOREIGN KEY (EstudianteID) REFERENCES Estudiantes (EstudianteID)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT fk_matriculas_cursos FOREIGN KEY (CursoID) REFERENCES Cursos (CursoID)
+    CONSTRAINT fk_cursos FOREIGN KEY (CursoID) REFERENCES Cursos (CursoID)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 ```
