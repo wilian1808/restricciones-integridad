@@ -48,8 +48,7 @@ INSERT INTO Estudiantes (Nombres, Apellidos, NumeroMatricula, Dni, Correo, Sexo)
 
 ### 2. Segundo
 
-Segundo. Crear una tabla para matrícula y otra para curso, debe considerarse las restricciones de
-integridad referencial.
+Crear una tabla para matrícula y otra para curso, debe considerarse las restricciones de integridad referencial.
 
 > Creamos la tabla *Cursos* con sus respectivos atributos.
 
@@ -79,6 +78,10 @@ CREATE TABLE Matriculas (
 
 ### 3. tercero.
 
-Indagar como acceder remotamente a una base de datos. Probar con alguno de sus
-compañeros de clase.
-Adjuntar capturas de pantalla.
+Indagar como acceder remotamente a una base de datos. Probar con alguno de sus compañeros de clase. Adjuntar capturas de pantalla.
+
+> Podemos acceder a la mayoria de gestores de bases de datos de manera remota, cada gestor cuenta con la opcion de habilitar o inhabilitar esta caracteristica por lo que para poder conectarnos de forma remota a una base de datos debemos seguir los siguientes pasos.
+
+- Debemos habilitar la opcion de permitir conexiones remotas.
+- Tendremos que crear un usuario y definir los permisos para que pueda ejecutar acciones dentro de nuestra base de datos.
+- Tenemos que definir el puerto y anotar la ip de la maquina donde estara la base de datos a conectarse.
